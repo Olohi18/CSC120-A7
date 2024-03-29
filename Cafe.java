@@ -50,7 +50,7 @@ public class Cafe extends Building{
         this.nSugarPackets -= nSugarPackets;
         this.nCreams -= nCreams;
         this.nCups -= 1;
-        System.out.println("Coffee sold!");
+        System.out.println("\nCoffee sold!\n");
         }
       
     
@@ -67,19 +67,27 @@ public class Cafe extends Building{
         this.nSugarPackets = nSugarPackets;
         this.nCreams = nCreams;
         this.nCups = nCups;
-        System.out.println("Cafe restocked! Proceeding to delivering requested amount of coffee");
+        System.out.println("\nCafe restocked! Proceeding to delivering requested amount of coffee");
     }
 
     /**
      * Prints the cafe's inventory
      */
     public String toString(){
+        System.out.println();
         return (this.name + " has " + this.nCoffeeOunces + " ounces of coffee, " + this.nSugarPackets + " packs of sugar, " + this.nCreams + " splashes of cream, and " + this.nCups + " cups.");
     }
     
+        public void showOptions() {
+        System.out.println("------------------------");
+        System.out.println("Available options at " + this.name + ":\nsellCoffee");
+        System.out.println("------------------------");
+    }
+
     // Main function to test house class' functionality
     public static void main(String[] args) {
         Cafe cc = new Cafe("Campus Cafe", "Neilson Drive", 3, 5, 3, 3, 7);
+        cc.showOptions();
         System.out.println(cc);
         cc.sellCoffee(6, 3, 2);
         System.out.println(cc);

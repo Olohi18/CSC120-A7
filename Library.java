@@ -102,9 +102,14 @@ public class Library extends Building {
       return library;
     }
 
+    public void showOptions() {
+      System.out.println("Available options at " + this.name + ":\nreturnBook() \naddTitle() \ncheckOut() \nremoveTitle()\ncontainsTitle()");
+  }
+
   
     public static void main(String[] args) {
         Library Neilson = new Library("Neilson", "Massachusetts", 5);
+        Neilson.showOptions();
         Neilson.addTitle("Golden Gulag by Rotkins");
         Neilson.addTitle("Empower by Daniels");
         //Neilson.checkOut("Golden Gulag by Rotkins");

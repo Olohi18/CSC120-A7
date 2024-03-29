@@ -87,7 +87,12 @@ public class House extends Building {
     return("done!");
 
     }
-    
+    /**
+     * Shows the options/methods of a class--- functions a class can perform
+     */
+    public void showOptions() {
+      System.out.println("Available options at " + this.name + ":\nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
+  }
   
 // Main function for testing code's functionality
   public static void main(String[] args) {
@@ -99,6 +104,7 @@ public class House extends Building {
     parsons.moveIn("Agaba");
     parsons.moveIn("x");
     parsons.moveOut("x");
+    parsons.showOptions();
 
     System.out.println(parsons);
 
