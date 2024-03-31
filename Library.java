@@ -110,14 +110,17 @@ public class Library extends Building {
     public static void main(String[] args) {
         Library Neilson = new Library("Neilson", "Massachusetts", 5);
         Neilson.showOptions();
-        Neilson.addTitle("Golden Gulag by Rotkins");
-        Neilson.addTitle("Empower by Daniels");
-        //Neilson.checkOut("Golden Gulag by Rotkins");
-        Neilson.removeTitle("Golden Gulag by Rotkins"); // Need to "Sout" to see side effect
-        Neilson.containsTitle("Empower by Daniels");
-        Neilson.checkOut("Empower by Daniels");
-        Neilson.returnBook("Golden Gulag by Rotkins");
-        System.out.println(Neilson);
+        Neilson.enter();
+        Neilson.goToFloor(1);
+
+        // Neilson.addTitle("Golden Gulag by Rotkins");
+        // Neilson.addTitle("Empower by Daniels");
+        // //Neilson.checkOut("Golden Gulag by Rotkins");
+        // Neilson.removeTitle("Golden Gulag by Rotkins"); // Need to "Sout" to see side effect
+        // Neilson.containsTitle("Empower by Daniels");
+        // Neilson.checkOut("Empower by Daniels");
+        // Neilson.returnBook("Golden Gulag by Rotkins");
+        // System.out.println(Neilson);
 
     }
   

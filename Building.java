@@ -66,7 +66,7 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
-    public void goToFloor(int floorNum) {
+    public void goToFloor(int floorNum) { //Why do we need to override this? Works as expected already
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
         }
@@ -109,6 +109,10 @@ public class Building {
         fordHall.goUp();
         fordHall.goDown();
         fordHall.exit();
+
+        // Building ford = new Building("Parsons", "Green Street", 5);
+        // System.out.println(ford);
+        
     }
 
 }
