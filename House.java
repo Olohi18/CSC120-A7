@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+//Overload moveIn and moveOut--- reasoning: should be able to add at least three at once; if less than 3, simply add individually using second constructor
 
 public class House extends Building {
   private ArrayList<String> residents;
   private boolean hasDiningRoom;
   private boolean hasElevator;
+  String removed; //Variable to add those removed successfully during massive removal
 
   /**
    * Constructor for house class
@@ -17,6 +19,7 @@ public class House extends Building {
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom; // Is this right? What you mean by pass as a parameter?
+    this.hasElevator = hasElevator;
     System.out.println("You have built a house: 🏠");
   }
 
@@ -47,18 +50,67 @@ public class House extends Building {
   }
 
   /**
+   * Overloaded moveIn constructor to move in more individuals at once
+   * @param n1
+   * @param n2
+   * @param n3
+   * @param n4
+   * @param n5
+   */
+  public void moveIn(String n1, String n2, String n3){
+    System.out.println("------------------------------------------------");
+    System.out.println("Moving in " + n1 + ", " + n2 + " ," + n3);
+    this.residents.add(n1);
+    this.residents.add(n2); 
+    this.residents.add(n3);
+    System.out.println("----------------Successfully moved in -----------");
+  }
+
+  /**
    * Removes a resident from a house
    * @param name
    * @return
    */
   public String moveOut(String name){
     if (isResident(name)){
-      System.out.println("...........Removing " + name + "...........");
+      System.out.println("...........Moving out " + name + "...........");
       this.residents.remove(name);
       return (name + " removed!");}
     else{
       return (name + " doesn't live in this house");}
     }
+
+  //Overloaded constructor to move out a bunch of people at once
+  public String moveOut(String n1, String n2, String n3){
+    if (isResident(n1)){
+      System.out.println("...........Moving out " + n1 + "...........");
+      this.residents.remove(n1);
+      removed += n1; //adds new individual to removed
+    }
+    else{
+      return (n1 + " doesn't live in this house");
+    }
+
+    if (isResident(n2)){
+      System.out.println("...........Moving out " + n2 + "...........");
+      this.residents.remove(n2);
+      removed += n2;
+    }
+    else{
+      return (n2 + " doesn't live in this house");
+    }  
+
+    if (isResident(n3)){
+      System.out.println("...........Moving out " + n3 + "...........");
+      this.residents.remove(n3);
+      removed += n3;
+    }
+    else{
+      return (n3 + " doesn't live in this house");
+    }
+  
+    return ("------------Removed " + removed);
+  }
 
   /**
    * Checks if a house contains a resident
@@ -81,10 +133,11 @@ public class House extends Building {
       desc += " It has an elevator.";
     }
     System.out.println(desc);
+    System.out.println("---------------------------------------");
     System.out.println("The residents of " + this.name + " are: ");
     for (String r:this.residents){
       System.out.println(r);}
-    return("done!");
+    return("\n");
 
     }
     /**
@@ -93,17 +146,16 @@ public class House extends Building {
     public void showOptions() {
       System.out.println("Available options at " + this.name + ":\nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
   }
+
+    
   
 // Main function for testing code's functionality
   public static void main(String[] args) {
     House parsons = new House("Parsons", "19 RoundHill Road", 3, true, false);
     // System.out.println(parsons.hasDiningRoom());
     // System.out.println(parsons.nResidents());
-    parsons.moveIn("Olohi");
-    parsons.moveIn("Oyale");
-    parsons.moveIn("Agaba");
-    parsons.moveIn("x");
-    parsons.moveOut("x");
+    parsons.moveIn("Olohi", "Oyale", "Agaba");
+    parsons.moveOut("Olohi", "Oyale", "Agaba");
     parsons.showOptions();
 
     System.out.println(parsons);

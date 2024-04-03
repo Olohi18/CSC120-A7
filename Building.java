@@ -10,18 +10,30 @@ public class Building {
         this("<Name Unknown>", "<Address Unknown>", 1);
     }
 
-    /* Overloaded constructor with address only */
+    /**
+     * Overloaded constructor with address only 
+     * @param address
+     */
     public Building(String address) {
         this(); // Call default constructor
         this.address = address; // Override address
     }
 
-    /* Overloaded constructor with name, address */
+    /**
+     * Overloaded constructor with name, address 
+     * @param name
+     * @param address
+     */
     public Building(String name, String address) {
         this(name, address, 1); // Call full constructor with hard-coded # floors
     }
 
-    /* Full constructor */
+    /**
+     * Full constructor 
+     * @param name
+     * @param address
+     * @param nFloors
+     */
     public Building(String name, String address, int nFloors) {
         if (name != null) { this.name = name; }
         if (address != null) { this.address = address; } 
@@ -31,20 +43,38 @@ public class Building {
         this.nFloors = nFloors;
     }
 
-    /* Accessors */
+    /**
+     * Accessor for name attribute
+     * @return name 
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Accessor for address attribute
+     * @return address
+     */
     public String getAddress() {
         return this.address;
     }
 
+
+    /**
+     * Accessor to get number of floors 
+     * @return nFloors
+     */
     public int getFloors() {
         return this.nFloors;
     }
 
     /* Navigation methods */
+
+    
+    /**
+     * Allows an individual to enter a building if they aren't already in it
+     * @return 
+     */
     public Building enter() {
         if (activeFloor != -1) {
             throw new RuntimeException("You are already inside this Building.");
@@ -54,19 +84,27 @@ public class Building {
         return this; // Return a pointer to the current building
     }
 
+    /**
+     * Allows an individual to leave if they're alerady on the first floor
+     * @return
+     */
     public Building exit() {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before exit().");
         }
         if (this.activeFloor > 1) {
-            throw new RuntimeException("You have fallen out a window from floor #" +this.activeFloor + "!");
+            throw new RuntimeException("You have fallen out a window from floor #" + this.activeFloor + "!");
         }
         System.out.println("You have left " + this.name + ".");
         this.activeFloor = -1; // We're leaving the building, so we no longer have a valid active floor
         return null; // We're outside now, so the building is null
     }
 
-    public void goToFloor(int floorNum) { //Why do we need to override this? Works as expected already
+    /**
+     * Allows to move between floors in an elevator
+     * @param floorNum
+     */
+    public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
         }
@@ -77,22 +115,35 @@ public class Building {
         this.activeFloor = floorNum;
     }
 
+
+    /**
+     * Moves up an occupant by one floor
+     */
     public void goUp() {
         this.goToFloor(this.activeFloor + 1);
     }
 
+
+    /**
+     * Moves down an occupant by one floor
+     */
     public void goDown() {
         this.goToFloor(this.activeFloor - 1);
     }
 
+    /**
+     * Prints out the options functionalities offered by a building
+     */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
 
+    //Prints out information about a building
     public String toString() {
         return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
     }
 
+    //Tests functionality of methods
     public static void main(String[] args) {
         System.out.println("------------------------------------");
         System.out.println("Test of Building constructor/methods");
@@ -100,12 +151,12 @@ public class Building {
         
         Building fordHall = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4);
         System.out.println(fordHall);
-        fordHall.showOptions();
+        fordHall.showOptions(); 
 
         System.out.println("-----------------------------------");
         System.out.println("Demonstrating enter/exit/navigation");
         System.out.println("-----------------------------------");
-        fordHall.enter();
+        fordHall.enter(); 
         fordHall.goUp();
         fordHall.goDown();
         fordHall.exit();

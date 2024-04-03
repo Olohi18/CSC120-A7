@@ -1,4 +1,3 @@
-
 public class Cafe extends Building{
     private int nCoffeeOunces;
     private int nSugarPackets;
@@ -6,7 +5,18 @@ public class Cafe extends Building{
     private int nCups;
 
     /**
-     * Constructor for the cafe class
+     * Overloaded constructor for cafe--- sets amount of ingredients available to default values
+     * @param name
+     * @param address
+     */
+    public Cafe(String name,String address) {
+        this(name, address, 1, 50, 50, 50, 50);
+        System.out.println("You have built a cafe: ☕");
+    }
+
+    
+    /**
+     * Full constructor for Cafe class
      * @param name
      * @param address
      * @param nFloors
@@ -15,19 +25,6 @@ public class Cafe extends Building{
      * @param nCreams
      * @param nCups
      */
-
-    //Default constructor for Cafe class
-    public Cafe(String name,String address) {
-        super(name, address);
-        //System.out.println("You have built a cafe: ☕");
-        this.nFloors = 1;
-        this.nCoffeeOunces = 50;
-        this.nSugarPackets = 50;
-        this.nCreams = 50;
-        this.nCups = 50;
-    }
-
-    //Full construcotr for Cafe class
     public Cafe(String name,String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         super(name, address, nFloors);
         //System.out.println("You have built a cafe: ☕");
@@ -39,14 +36,13 @@ public class Cafe extends Building{
 
     
     /**
-     * Decreases the items in inventory by amount of ingredients needed to make requested coffee
+     * Full sellCoffee method: decreases the items in inventory by amount of each material needed to make requested coffee
      * @param size
-     * @param nSugarPackets //why won't it show error if I do not define it within a method
+     * @param nSugarPackets 
      * @param nCreams
      */
-    //Full method for sellCoffee
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
-        if (this.nCoffeeOunces < size | this.nSugarPackets < nSugarPackets | this.nCreams < nCreams | this.nCups < 1){
+        if (this.nCoffeeOunces < size | this.nSugarPackets < nSugarPackets | this.nCreams < nCreams | this.nCups < 1){ //checks if materials in invenory are sufficient to make the given amount of coffee
             System.out.println("You need to restock. One of your items isn't enough to make the requested amount of coffee");
             this.restock(size, nSugarPackets, nCreams);
         }
@@ -58,54 +54,33 @@ public class Cafe extends Building{
         System.out.println("Coffee sold!");
         }
     
-    //Overloaded non-Sugar method for sellCoffee
-    public void sellCoffee(int size, int nCreams){
-        //checks if items contained in inventory is sufficient to make a cup of coffee
-        if (this.nCoffeeOunces < size | this.nCreams < nCreams | this.nCups < 1){
-            System.out.println("You need to restock. One of the items is out of stock");
-            this.restock(size, nCreams); //Restocks items out of stock
-        }
-        System.out.println("----------------Selling Coffee!-------------");
-        //Reduces the amount of each item in the inventory by the amount needed to make the coffee
-        this.nCoffeeOunces -= size; this.nCreams -= nCreams; this.nCups -= 1; //this.nSugarPackets -=nSugarPackets;
-        System.out.println("Coffee sold!");
-    }
     
     /**
-     * Restocks the cafe's inventory
+     * sellCoffee non-Sugar method
+     * @param size
+     * @param nCreams
+     */
+    public void sellCoffee(int size, int nCreams){
+        sellCoffee(size, 0,  nCreams); //Calls the sellCoffee full method
+        
+    }
+    /**
+     * Default restock method: Restocks the cafe's inventory
      * @param nCoffeeOunces
      * @param nSugarPackets
      * @param nCreams
      * @param nCups
      */
-
-    //Default restock method
     private void restock(){
-        this.nCoffeeOunces = 50;
-        this.nSugarPackets = 50;
-        this.nCreams = 50;
-        this.nCups = 50;
-        System.out.println("\nCafe restocked! Proceeding to delivering requested amount of coffee");
+        restock(50, 50, 50);
     }
 
-    //Overloaded non-sugar restock method
-    private void restock(int size, int nCreams){
-        if (this.nCoffeeOunces < size){
-            this.nCoffeeOunces = 50;
-            System.out.println("Coffee ounces now in stock");
-        }
-        if (this.nCreams < nCreams){
-            this.nCreams = 50;
-            System.out.println("Cream now in stock");
-        }
-        if (this.nCups < nCups){
-            this.nCups = 20;
-            System.out.println("Cups now in stock");
-        }
-        System.out.println("\nCafe restocked! Proceeding to delivering requested amount of coffee");
-    }
-
-    //Full restock method
+    /**
+     * Full restock method
+     * @param size
+     * @param nCreams
+     * @param nSugarPackets
+     */
     private void restock(int size, int nCreams, int nSugarPackets){
         if (this.nCoffeeOunces < size){
             this.nCoffeeOunces = 50;
@@ -123,7 +98,16 @@ public class Cafe extends Building{
             this.nCups = 50;
             System.out.println("Cups now in stock");
         }
-        System.out.println("\nCafe restocked! Proceeding to delivering requested amount of coffee");
+        System.out.println("\nCafe restocked!");
+
+    }
+
+    /**
+     * Overrides goToFloor in Building-- Cafe doesn't need it
+     * @param floorNum
+     */
+    public void goToFloor(int floorNum) {
+        throw new RuntimeException("No elevators in a Cafe! It has just one floor");
     }
 
     /**
@@ -133,11 +117,14 @@ public class Cafe extends Building{
         System.out.println();
         return (this.name + " has " + this.nCoffeeOunces + " ounces of coffee, " + this.nSugarPackets + " packs of sugar, " + this.nCreams + " splashes of cream, and " + this.nCups + " cups.");
     }
-    
-        public void showOptions() {
-        System.out.println("------------------------");
-        System.out.println("Available options at " + this.name + ":\nsellCoffee");
-        System.out.println("------------------------");
+
+    /**
+     * Prints the functionalities of the Cafe class
+     */
+    public void showOptions() {
+    System.out.println("------------------------");
+    System.out.println("Available options at " + this.name + ":\nsellCoffee");
+    System.out.println("------------------------");
     }
 
     // Main function to test Cafe class' functionality
@@ -145,10 +132,13 @@ public class Cafe extends Building{
         //Make another constructor that just gives name and address
         Cafe cc = new Cafe("Campus Cafe", "Neilson Drive", 3, 5, 3, 3, 7);
         Cafe neilson = new Cafe("Compass Cafe", "Neilson Drive");
-        cc.showOptions(); neilson.showOptions(); 
+       // neilson.goToFloor(1);
+        //cc.showOptions(); neilson.showOptions(); 
         System.out.println(cc); System.out.println(neilson);
-        neilson.sellCoffee(6, 3, 2); cc.sellCoffee(6, 3, 2); cc.sellCoffee(6, 3, 2); 
+        cc.sellCoffee(16, 30, 2); cc.sellCoffee(6, 30, 2); cc.sellCoffee(6, 2); 
         System.out.println(cc); System.out.println(neilson);
+        neilson.restock();
+        System.out.println(neilson);
         
   
 
