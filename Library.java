@@ -10,8 +10,8 @@ public class Library extends Building {
      * @param address
      * @param nFloors
      */
-    public Library(String name, String address, int nFloors) {
-        super(name, address, nFloors);
+    public Library(String name, String address, int nFloors, boolean hasElevator) {
+        super(name, address, nFloors, hasElevator);
         System.out.println("You have built a library: 📖");
         this.collection = new Hashtable<String, Boolean>();
     }
@@ -165,6 +165,21 @@ public class Library extends Building {
       containsTitle(t1); containsTitle(t2);  containsTitle(t3);  containsTitle(t4);
     }
 
+    public void goToFloor(int floorNum) {
+      if (this.hasElevator){
+      if (this.activeFloor == -1) {
+          throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+      }
+      if (floorNum < 1 || floorNum > this.nFloors) {
+          throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+      }
+      System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+      this.activeFloor = floorNum;}
+      else{
+        System.out.println("There are no elevators in " + this.name);
+      }
+      }
+
 
     /**
      * Prints out the books in the library
@@ -186,24 +201,14 @@ public class Library extends Building {
 
   
     public static void main(String[] args) {
-        Library Neilson = new Library("Neilson", "Massachusetts", 5);
+        Library Neilson = new Library("Neilson", "Massachusetts", 5, true);
         Neilson.showOptions();
         Neilson.enter();
         Neilson.goToFloor(1);
         Neilson.addTitle("Golden Gulag", "Empower", "Inikori", "Good morning Holy Spirit");
        // Neilson.removeTitle("Golden Gulag", "Empower", "Inikori", "Good morning y Spirit");
-        Neilson.containsTitle("Golden Gulag", "Empower", "Inikori", "Good morning Holy Spirit");
-        
-;
-        // Neilson.addTitle("Golden Gulag by Rotkins");
-        // Neilson.addTitle("Empower by Daniels");
-        // //Neilson.checkOut("Golden Gulag by Rotkins");
-        // Neilson.removeTitle("Golden Gulag by Rotkins"); // Need to "Sout" to see side effect
-        // Neilson.containsTitle("Empower by Daniels");
-        // Neilson.checkOut("Empower by Daniels");
-        // Neilson.returnBook("Golden Gulag by Rotkins");
-        // System.out.println(Neilson);
-
+        //Neilson.containsTitle("Golden Gulag", "Empower", "Inikori", "Good morning Holy Spirit");
+ 
     }
   
   }

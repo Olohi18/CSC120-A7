@@ -16,7 +16,7 @@ public class House extends Building {
    * @param hasElevator
    */
   public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElevator) {
-    super(name, address, nFloors);
+    super(name, address, nFloors, hasElevator);
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom; // Is this right? What you mean by pass as a parameter?
     this.hasElevator = hasElevator;
@@ -122,6 +122,7 @@ public class House extends Building {
     return this.residents.contains(person);
   }  
 
+
   /**
    * Prints out the residents in a house
    */
@@ -135,31 +136,36 @@ public class House extends Building {
     }
     System.out.println(desc);
     System.out.println("---------------------------------------");
+    if (!this.residents.isEmpty()){
     System.out.println("The residents of " + this.name + " are: ");
     for (String r:this.residents){
       System.out.println(r);}
     return("\n");
 
     }
+    else{return("There are no residents at " + this.name);}
+  }
     /**
      * Shows the options/methods of a class--- functions a class can perform
      */
     public void showOptions() {
-      System.out.println("Available options at " + this.name + ":\nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
+      System.out.println("Available options at " + this.name + ":\nenter() \nexit() \ngoUp() \ngoDown()\ngoToFloor(n) \nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
   }
 
     
   
 // Main function for testing code's functionality
   public static void main(String[] args) {
-    House parsons = new House("Parsons", "19 RoundHill Road", 3, true, false);
+    House parsons = new House("Northrop", "19 RoundHill Road", 3, true, true);
     // System.out.println(parsons.hasDiningRoom());
     // System.out.println(parsons.nResidents());
     parsons.moveIn("Olohi", "Oyale", "Agaba");
     parsons.moveOut("Olohi", "Oyale", "Agaba");
+    parsons.enter();
+    parsons.goToFloor(3);
     parsons.showOptions();
 
-    System.out.println(parsons);
+    // System.out.println(parsons);
 
 
     
