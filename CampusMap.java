@@ -53,6 +53,7 @@ public class CampusMap {
         myMap.addBuilding(new Building("Sage Hall", "144 Green St, Northampton, MA 01063", 4, true));
         myMap.addBuilding(new Building("Helen Hills Chapel", "123 Elm Street, Northampton, MA 01063", 4, true));
         System.out.println(myMap);
+        
     }
     
 }

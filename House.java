@@ -81,7 +81,11 @@ public class House extends Building {
       return (name + " doesn't live in this house");}
     }
 
-  //Overloaded constructor to move out a bunch of people at once
+ /**
+   * Removes three residents from house at once
+   * @param name
+   * @return
+   */
   public String moveOut(String n1, String n2, String n3){
     if (isResident(n1)){
       System.out.println("...........Moving out " + n1 + "...........");

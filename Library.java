@@ -180,6 +180,14 @@ public class Library extends Building {
       }
       }
 
+    /**
+     * Shows the available methods in library
+     */
+    public void showOptions() {
+      System.out.println("Available options at " + this.name + ":\nreturnBook() \naddTitle() \ncheckOut() \nremoveTitle()\ncontainsTitle()");
+  }
+
+
 
     /**
      * Prints out the books in the library
@@ -195,10 +203,7 @@ public class Library extends Building {
       return library;
     }
 
-    public void showOptions() {
-      System.out.println("Available options at " + this.name + ":\nreturnBook() \naddTitle() \ncheckOut() \nremoveTitle()\ncontainsTitle()");
-  }
-
+    
   
     public static void main(String[] args) {
         Library Neilson = new Library("Neilson", "Massachusetts", 5, true);
