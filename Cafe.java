@@ -13,7 +13,6 @@ public class Cafe extends Building{
         this(name, address, 1, 50, 50, 50, 50);
         System.out.println("You have built a cafe: ☕");
     }
-
     
     /**
      * Full constructor for Cafe class

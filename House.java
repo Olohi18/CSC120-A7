@@ -57,7 +57,8 @@ public class House extends Building {
    * @param n4
    * @param n5
    */
-  public void moveIn(String n1, String n2, String n3){
+
+  public void moveIn(String n1, String n2, String n3){ //add a list instead
     System.out.println("------------------------------------------------");
     System.out.println("Moving in " + n1 + ", " + n2 + " ," + n3);
     this.residents.add(n1);
