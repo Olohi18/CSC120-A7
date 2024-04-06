@@ -45,13 +45,15 @@ public class CampusMap {
         myMap.addBuilding(new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4, true));
         myMap.addBuilding(new Building("Bass Hall", "4 Tyler Court Northampton, MA 01063", 4, true));
         myMap.addBuilding(new Building("Seelye Hall", "2 Seelye Dr, Northampton, MA 01063", 4, true));
-        myMap.addBuilding(new Building("Hatfield hall", "100 Elm Street, Northampton, MA 01063", 4, true));
-        myMap.addBuilding(new Building("Cutter Dining Hall", "10 Prospect Street, Northampton, MA 01063", 4, true));
-        myMap.addBuilding(new Building("Parsons House", "24 Henshaw Ave, Northampton, MA 01063", 4, true));
-        myMap.addBuilding(new Building("Parsons Annex", "19 Round Hill Road, Northampton, MA 01063", 4, true));
         myMap.addBuilding(new Building("Ainsworth Gym", "102 College Lane, Northampton, MA 01063", 4, true));
         myMap.addBuilding(new Building("Sage Hall", "144 Green St, Northampton, MA 01063", 4, true));
         myMap.addBuilding(new Building("Helen Hills Chapel", "123 Elm Street, Northampton, MA 01063", 4, true));
+        myMap.addBuilding(new Cafe("Campus Cafe", "Neilson Drive", 3, 5, 3, 3, 7));
+        myMap.addBuilding(new Cafe("Compass Cafe", "Neilson Drive"));
+        myMap.addBuilding(new House("Northrop", "19 RoundHill Road", 3, true, true));
+        myMap.addBuilding(new House("Parsons House", "24 Henshaw Ave, Northampton, MA 01063", 4, true, true));
+        myMap.addBuilding(new House("Parsons Annex", "19 Round Hill Road, Northampton, MA 01063", 4, true, false));
+        myMap.addBuilding(new Library("Neilson", "100 Elm Street, Northampton, MA 01063", 4, true));
         System.out.println(myMap);
         
     }

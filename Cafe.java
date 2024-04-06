@@ -138,6 +138,7 @@ public class Cafe extends Building{
         System.out.println(cc); System.out.println(neilson);
         neilson.restock();
         System.out.println(neilson);
+        System.out.println(neilson.getClass());
         
   
 
