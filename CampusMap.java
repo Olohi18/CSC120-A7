@@ -54,6 +54,7 @@ public class CampusMap {
         myMap.addBuilding(new House("Parsons House", "24 Henshaw Ave, Northampton, MA 01063", 4, true, true));
         myMap.addBuilding(new House("Parsons Annex", "19 Round Hill Road, Northampton, MA 01063", 4, true, false));
         myMap.addBuilding(new Library("Neilson", "100 Elm Street, Northampton, MA 01063", 4, true));
+        myMap.addBuilding(new Library("Alumnae Gym", "83 Green Street, Northampton, MA 01063", 3, true));
         System.out.println(myMap);
         
     }

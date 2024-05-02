@@ -10,7 +10,7 @@ public class Cafe extends Building{
      * @param address
      */
     public Cafe(String name,String address) {
-        this(name, address, 1, 50, 50, 50, 50);
+        this(name, address, 2, 50, 50, 50, 50);
         System.out.println("You have built a cafe: ☕");
     }
     
@@ -102,11 +102,11 @@ public class Cafe extends Building{
     }
 
     /**
-     * Overrides goToFloor in Building-- Cafe doesn't need it
+     * Overrides goToFloor in Building-- Patrons aren't allowed to move between floors
      * @param floorNum
      */
     public void goToFloor(int floorNum) {
-        throw new RuntimeException("No elevators in a Cafe! It has just one floor");
+        throw new RuntimeException("You are not permitted to move between floors. Thanks for your co-operation.");
     }
 
     /**

@@ -141,6 +141,7 @@ public class Building {
      * Prints out the options functionalities offered by a building
      */
     public void showOptions() {
+        // super.showOptions(); //showOptions not showing
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
 
