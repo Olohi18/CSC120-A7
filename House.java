@@ -153,8 +153,24 @@ public class House extends Building {
      * Shows the options/methods of a class--- functions a class can perform
      */
     public void showOptions() {
+      super.showOptions();
       System.out.println("Available options at " + this.name + ":\nenter() \nexit() \ngoUp() \ngoDown()\ngoToFloor(n) \nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
   }
+
+  public void goToFloor(int floorNum) {
+    if (this.hasElevator){
+        if (this.activeFloor == -1) {
+            throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+        }
+        if (floorNum < 1 || floorNum > this.nFloors) {
+            throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+        }
+        System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+        this.activeFloor = floorNum;}
+    else{
+    System.out.println("There are no elevators in " + this.name + ". Use the goUp(), goDown() methods instead");
+    }
+}
 
     
   

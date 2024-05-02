@@ -107,7 +107,6 @@ public class Building {
      * @param floorNum
      */
     public void goToFloor(int floorNum) {
-        if (this.hasElevator){
             if (this.activeFloor == -1) {
                 throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
             }
@@ -116,10 +115,6 @@ public class Building {
             }
             System.out.println("You are now on floor #" + floorNum + " of " + this.name);
             this.activeFloor = floorNum;}
-        else{
-        System.out.println("There are no elevators in " + this.name + ". Use the goUp(), goDown() methods instead");
-        }
-    }
 
 
     /**
@@ -141,7 +136,6 @@ public class Building {
      * Prints out the options functionalities offered by a building
      */
     public void showOptions() {
-        // super.showOptions(); //showOptions not showing
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
 
@@ -167,6 +161,7 @@ public class Building {
         fordHall.goUp();
         fordHall.goDown();
         fordHall.exit();
+        fordHall.goToFloor(3);
 
         // Building ford = new Building("Parsons", "Green Street", 5);
         // System.out.println(ford);

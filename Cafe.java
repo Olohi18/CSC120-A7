@@ -121,9 +121,10 @@ public class Cafe extends Building{
      * Prints the functionalities of the Cafe class
      */
     public void showOptions() {
-    System.out.println("------------------------");
-    System.out.println("Available options at " + this.name + ":\nsellCoffee");
-    System.out.println("------------------------");
+        super.showOptions(); 
+        System.out.println("------------------------");
+        System.out.println("Other available options at " + this.name + ":\nsellCoffee");
+        System.out.println("------------------------");
     }
 
     // Main function to test Cafe class' functionality
@@ -132,7 +133,7 @@ public class Cafe extends Building{
         Cafe cc = new Cafe("Campus Cafe", "Neilson Drive", 3, 5, 3, 3, 7);
         Cafe neilson = new Cafe("Compass Cafe", "Neilson Drive");
        // neilson.goToFloor(1);
-        //cc.showOptions(); neilson.showOptions(); 
+        cc.showOptions(); neilson.showOptions(); 
         System.out.println(cc); System.out.println(neilson);
         cc.sellCoffee(16, 30, 2); cc.sellCoffee(6, 30, 2); cc.sellCoffee(6, 2); 
         System.out.println(cc); System.out.println(neilson);
