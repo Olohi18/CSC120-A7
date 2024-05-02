@@ -154,7 +154,9 @@ public class House extends Building {
      */
     public void showOptions() {
       super.showOptions();
-      System.out.println("Available options at " + this.name + ":\nenter() \nexit() \ngoUp() \ngoDown()\ngoToFloor(n) \nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
+      System.out.println("------------------------");
+      System.out.println("Other available options at " + this.name + ":\nmoveIn() \nmoveOut() \nhasDiningRoom() \nhasElevator"); //hasDiningRoom sounds weird
+      System.out.println("------------------------");
   }
 
   public void goToFloor(int floorNum) {
@@ -168,7 +170,7 @@ public class House extends Building {
         System.out.println("You are now on floor #" + floorNum + " of " + this.name);
         this.activeFloor = floorNum;}
     else{
-    System.out.println("There are no elevators in " + this.name + ". Use the goUp(), goDown() methods instead");
+    System.out.println("There are no elevators in " + this.name + ". Use the goUp(), goDown() methods instead.");
     }
 }
 
@@ -176,7 +178,7 @@ public class House extends Building {
   
 // Main function for testing code's functionality
   public static void main(String[] args) {
-    House parsons = new House("Northrop", "19 RoundHill Road", 3, true, true);
+    House parsons = new House("Northrop", "19 RoundHill Road", 3, true, false);
     // System.out.println(parsons.hasDiningRoom());
     // System.out.println(parsons.nResidents());
     parsons.moveIn("Olohi", "Oyale", "Agaba");

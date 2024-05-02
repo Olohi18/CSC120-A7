@@ -103,12 +103,12 @@ public class Building {
     }
 
     /**
-     * Allows to move between floors if there's an elevator
+     * Allows to move between floors since there's always an elevator
      * @param floorNum
      */
     public void goToFloor(int floorNum) {
             if (this.activeFloor == -1) {
-                throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+                throw new RuntimeException("You are not inside the Library. Must call enter() before navigating between floors.");
             }
             if (floorNum < 1 || floorNum > this.nFloors) {
                 throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
@@ -160,9 +160,11 @@ public class Building {
         fordHall.enter(); 
         fordHall.goUp();
         fordHall.goDown();
-        fordHall.exit();
         fordHall.goToFloor(3);
-
+        fordHall.goDown();
+        fordHall.goDown();
+        fordHall.exit();
+        
         // Building ford = new Building("Parsons", "Green Street", 5);
         // System.out.println(ford);
         

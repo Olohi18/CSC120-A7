@@ -40,7 +40,7 @@ ___YES__ 1 pt: The `CampusMap` includes at least one instance of each class: a `
 
 ## General Items:
 
-__YES___ 4 pts: Programs compile without errors or warnings
+___YES__ 4 pts: Programs compile without errors or warnings
 
 ___YES__ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 

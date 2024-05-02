@@ -166,7 +166,6 @@ public class Library extends Building {
     }
 
     public void goToFloor(int floorNum) {
-      if (this.hasElevator){
       if (this.activeFloor == -1) {
           throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
       }
@@ -175,16 +174,17 @@ public class Library extends Building {
       }
       System.out.println("You are now on floor #" + floorNum + " of " + this.name);
       this.activeFloor = floorNum;}
-      else{
-        System.out.println("There are no elevators in " + this.name);
-      }
-      }
+      
 
     /**
      * Shows the available methods in library
      */
     public void showOptions() {
-      System.out.println("Available options at " + this.name + ":\nreturnBook() \naddTitle() \ncheckOut() \nremoveTitle()\ncontainsTitle()");
+      super.showOptions();
+      System.out.println("------------------------");
+      System.out.println("Other available options at " + this.name + ":\nreturnBook() \naddTitle() \ncheckOut() \nremoveTitle()\ncontainsTitle()");
+      System.out.println("------------------------");
+     
   }
 
 
