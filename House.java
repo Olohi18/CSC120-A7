@@ -44,9 +44,13 @@ public class House extends Building {
    * @param name
    */
   public void moveIn(String name){
+    if (!(isResident(name))){
     System.out.println("Adding " + name);
     this.residents.add(name);
-    System.out.println("............" + name + " added.............");
+    System.out.println("............" + name + " added............");}
+    else{
+      System.out.println(name + " already lives in " + this.name);
+    }
   }
 
   /**
@@ -60,11 +64,9 @@ public class House extends Building {
 
   public void moveIn(String n1, String n2, String n3){ //add a list instead
     System.out.println("------------------------------------------------");
-    System.out.println("Moving in " + n1 + ", " + n2 + " ," + n3);
-    this.residents.add(n1);
-    this.residents.add(n2); 
-    this.residents.add(n3);
-    System.out.println("----------------Successfully moved in -----------");
+    moveIn(n1);
+    moveIn(n2);
+    moveIn(n3);
   }
 
   /**
@@ -93,7 +95,7 @@ public class House extends Building {
       removed += n1; //adds new individual to removed
     }
     else{
-      return (n1 + " doesn't live in this house");
+      System.out.println(n1 + " doesn't live in this house");
     }
 
     if (isResident(n2)){
@@ -102,7 +104,7 @@ public class House extends Building {
       removed += n2;
     }
     else{
-      return (n2 + " doesn't live in this house");
+      System.out.println(n2 + " doesn't live in this house");
     }  
 
     if (isResident(n3)){
@@ -111,7 +113,7 @@ public class House extends Building {
       removed += n3;
     }
     else{
-      return (n3 + " doesn't live in this house");
+      System.out.println(n3 + " doesn't live in this house");
     }
   
     return ("------------Removed " + removed);
@@ -130,7 +132,7 @@ public class House extends Building {
   /**
    * Prints out the residents in a house
    */
-  public String toString(){
+  public void printCollection(){
     String desc = super.toString();
     if (this.hasDiningRoom = true){
       desc += ". It has a dining room.";
@@ -144,10 +146,8 @@ public class House extends Building {
     System.out.println("The residents of " + this.name + " are: ");
     for (String r:this.residents){
       System.out.println(r);}
-    return("\n");
-
     }
-    else{return("There are no residents at " + this.name);}
+    else{System.out.println("There are no residents at " + this.name);}
   }
     /**
      * Shows the options/methods of a class--- functions a class can perform
