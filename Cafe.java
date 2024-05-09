@@ -93,8 +93,8 @@ public class Cafe extends Building{
             this.nSugarPackets = 50;
             System.out.println("Sugar packets now in stock");
         }
-        if (this.nCups < nCups){
-            this.nCups = 50;
+        if (this.nCups < 5){
+            this.nCups = 10;
             System.out.println("Cups now in stock");
         }
         System.out.println("\nCafe restocked!");

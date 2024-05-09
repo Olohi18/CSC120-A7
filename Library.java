@@ -187,20 +187,20 @@ public class Library extends Building {
      
   }
 
-
-
     /**
      * Prints out the books in the library
      * @return String library
      */
-    public String toString(){
-      this.collection.keys();
+    public void printCollection(){
       System.out.println();
-      String library = "The books at " + this.name + " are: ";
-      for (String book : this.collection.keySet()){
-        library += "\n" + book;
+      if (this.collection.isEmpty()){
+        System.out.println("There are no books at " + this.name);
       }
-      return library;
+      else{
+        String library = "The books at " + this.name + " are: ";
+        for (String book : this.collection.keySet()){
+        library += "\n" + book;}
+        System.out.println(library);}
     }
 
     
@@ -211,6 +211,7 @@ public class Library extends Building {
         Neilson.enter();
         Neilson.goToFloor(1);
         Neilson.addTitle("Golden Gulag", "Empower", "Inikori", "Good morning Holy Spirit");
+        Neilson.printCollection();
        // Neilson.removeTitle("Golden Gulag", "Empower", "Inikori", "Good morning y Spirit");
         //Neilson.containsTitle("Golden Gulag", "Empower", "Inikori", "Good morning Holy Spirit");
  

@@ -84,7 +84,7 @@ public class House extends Building {
     }
 
  /**
-   * Removes three residents from house at once
+   * Removes three residents from house at once... Seems long and inefficient but wanted to try showing the books that were removed successfully all at once and decided to try doing it this way.
    * @param name
    * @return
    */
